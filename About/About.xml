@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Weapon Quality Indicators</name>
+	<author>Carny Senpai</author>
+	<packageId>CarnySenpai.WeaponQualityIndicators</packageId>
+	<supportedVersions>
+		<li>1.0</li>
+		<li>1.1</li>
+	</supportedVersions>
+	<description>Makes weapons have that glowing indicator above them like in Borderlands 2.
+
+Color depends on weapon quality and is also taken from Borderlands 2:
+White
+Gree
+Blue
+Purple
+Orange
+Pink
+Cyan</description>
+</ModMetaData>
