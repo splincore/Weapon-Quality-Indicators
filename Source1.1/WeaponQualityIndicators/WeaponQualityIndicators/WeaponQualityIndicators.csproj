@@ -55,6 +55,8 @@
     <Compile Include="CompProperties_QualityShine.cs" />
     <Compile Include="CompQualityShine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeaponQualityIndicatorMod.cs" />
+    <Compile Include="WeaponQualityIndicatorModSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
