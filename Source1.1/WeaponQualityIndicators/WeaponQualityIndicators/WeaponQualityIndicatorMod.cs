@@ -42,7 +42,7 @@ namespace WeaponQualityIndicators
 
         public override string SettingsCategory()
         {
-            return "Weapon Quality Indicators";
+            return "Weapon and Apparel Quality Indicators";
         }
     }
 }
