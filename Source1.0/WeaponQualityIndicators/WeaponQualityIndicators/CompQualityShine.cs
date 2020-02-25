@@ -22,7 +22,7 @@ namespace WeaponQualityIndicators
                 graphicData = new GraphicData();
                 graphicData.texPath = Props.graphicData.texPath;
                 graphicData.graphicClass = Props.graphicData.graphicClass;
-                graphicData.drawSize = new Vector2() { x = LoadedModManager.GetMod<WeaponQualityIndicatorMod>().GetSettings<WeaponQualityIndicatorModSettings>().xDrawSize, y = LoadedModManager.GetMod<WeaponQualityIndicatorMod>().GetSettings<WeaponQualityIndicatorModSettings>().yDrawSize };
+                graphicData.drawSize = new Vector2() { x = ModSettingGetter.xDrawSize, y = ModSettingGetter.yDrawSize };
                 if (parent is ThingWithComps thingWithComps && thingWithComps.TryGetComp<CompQuality>() is CompQuality compQuality)
                 {
                     switch (compQuality.Quality)
