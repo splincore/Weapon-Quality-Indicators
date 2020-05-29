@@ -17,7 +17,6 @@ namespace WeaponQualityIndicators
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
 
-            listingStandard.Label("For Performance reasons: changing settings needs a reload from the game to take effect!");
             listingStandard.Gap(listingStandard.verticalSpacing);
             listingStandard.Label("Indicator width");
             Rect rect1 = listingStandard.GetRect(22f);
@@ -38,6 +37,8 @@ namespace WeaponQualityIndicators
             listingStandard.CheckboxLabeled("Change label color on ground", ref weaponQualityIndicatorModSettings.changeShortLabelColor);
 
             listingStandard.End();
+
+            ModSettingGetter.GetSettings();
         }
 
         public override string SettingsCategory()
