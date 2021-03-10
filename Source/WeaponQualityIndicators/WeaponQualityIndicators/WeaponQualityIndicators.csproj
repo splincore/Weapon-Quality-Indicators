@@ -57,8 +57,13 @@
       <HintPath>D:\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>D:\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorChangeWindow.cs" />
     <Compile Include="CompProperties_QualityShine.cs" />
     <Compile Include="CompQualityShine.cs" />
     <Compile Include="HarmonyPatch.cs" />

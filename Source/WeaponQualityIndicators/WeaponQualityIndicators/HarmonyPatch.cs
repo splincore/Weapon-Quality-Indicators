@@ -12,6 +12,7 @@ namespace WeaponQualityIndicators
             var harmony = new Harmony("rimworld.carnysenpai.weaponqualityindicators");
             harmony.Patch(AccessTools.Method(typeof(CompQuality), "CompInspectStringExtra"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("CompInspectStringExtra_PostFix")), null);
             harmony.Patch(AccessTools.Method(typeof(QualityUtility), "GetLabelShort"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GetLabelShort_PostFix")), null);
+            harmony.Patch(AccessTools.Method(typeof(QualityUtility), "GetLabel"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GetLabel_PostFix")), null);
         }
 
         [HarmonyPostfix]
@@ -21,25 +22,25 @@ namespace WeaponQualityIndicators
             switch(__instance.Quality)
             {
                 case QualityCategory.Awful:
-                    __result = "<color=#ffffff>" + __result + "</color>"; // white
+                    __result = ModSettingGetter.stringAwful + __result + "</color>";
                     break;
                 case QualityCategory.Poor:
-                    __result = "<color=#66ff33>" + __result + "</color>"; // green
+                    __result = ModSettingGetter.stringPoor + __result + "</color>";
                     break;
                 case QualityCategory.Normal:
-                    __result = "<color=#0000ff>" + __result + "</color>"; // blue
+                    __result = ModSettingGetter.stringNormal + __result + "</color>";
                     break;
                 case QualityCategory.Good:
-                    __result = "<color=#990099>" + __result + "</color>"; // purple
+                    __result = ModSettingGetter.stringGood + __result + "</color>";
                     break;
                 case QualityCategory.Excellent:
-                    __result = "<color=#ff9900>" + __result + "</color>"; // orange
+                    __result = ModSettingGetter.stringExcellent + __result + "</color>";
                     break;
                 case QualityCategory.Masterwork:
-                    __result = "<color=#ff66cc>" + __result + "</color>"; // pink
+                    __result = ModSettingGetter.stringMasterwork + __result + "</color>";
                     break;
                 case QualityCategory.Legendary:
-                    __result = "<color=#00ffff>" + __result + "</color>"; // cyan
+                    __result = ModSettingGetter.stringLegendary + __result + "</color>";
                     break;
             }
         }
@@ -51,25 +52,55 @@ namespace WeaponQualityIndicators
             switch (cat)
             {
                 case QualityCategory.Awful:
-                    __result = "<color=#ffffff>" + __result + "</color>"; // white
+                    __result = ModSettingGetter.stringAwful + __result + "</color>";
                     break;
                 case QualityCategory.Poor:
-                    __result = "<color=#66ff33>" + __result + "</color>"; // green
+                    __result = ModSettingGetter.stringPoor + __result + "</color>";
                     break;
                 case QualityCategory.Normal:
-                    __result = "<color=#0000ff>" + __result + "</color>"; // blue
+                    __result = ModSettingGetter.stringNormal + __result + "</color>";
                     break;
                 case QualityCategory.Good:
-                    __result = "<color=#990099>" + __result + "</color>"; // purple
+                    __result = ModSettingGetter.stringGood + __result + "</color>";
                     break;
                 case QualityCategory.Excellent:
-                    __result = "<color=#ff9900>" + __result + "</color>"; // orange
+                    __result = ModSettingGetter.stringExcellent + __result + "</color>";
                     break;
                 case QualityCategory.Masterwork:
-                    __result = "<color=#ff66cc>" + __result + "</color>"; // pink
+                    __result = ModSettingGetter.stringMasterwork + __result + "</color>";
                     break;
                 case QualityCategory.Legendary:
-                    __result = "<color=#00ffff>" + __result + "</color>"; // cyan
+                    __result = ModSettingGetter.stringLegendary + __result + "</color>";
+                    break;
+            }
+        }
+
+        [HarmonyPostfix]
+        public static void GetLabel_PostFix(QualityCategory cat, ref string __result)
+        {
+            if (!ModSettingGetter.changeLabelColor) return;
+            switch (cat)
+            {
+                case QualityCategory.Awful:
+                    __result = ModSettingGetter.stringAwful + __result + "</color>";
+                    break;
+                case QualityCategory.Poor:
+                    __result = ModSettingGetter.stringPoor + __result + "</color>";
+                    break;
+                case QualityCategory.Normal:
+                    __result = ModSettingGetter.stringNormal + __result + "</color>";
+                    break;
+                case QualityCategory.Good:
+                    __result = ModSettingGetter.stringGood + __result + "</color>";
+                    break;
+                case QualityCategory.Excellent:
+                    __result = ModSettingGetter.stringExcellent + __result + "</color>";
+                    break;
+                case QualityCategory.Masterwork:
+                    __result = ModSettingGetter.stringMasterwork + __result + "</color>";
+                    break;
+                case QualityCategory.Legendary:
+                    __result = ModSettingGetter.stringLegendary + __result + "</color>";
                     break;
             }
         }

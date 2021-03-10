@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using UnityEngine;
 using Verse;
+using System.Globalization;
 
 namespace WeaponQualityIndicators
 {
@@ -29,25 +30,25 @@ namespace WeaponQualityIndicators
                     switch (compQuality.Quality)
                     {
                         case QualityCategory.Awful:
-                            graphicData.color = new Color(1f, 1f, 1f); // white
+                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringAwful.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringAwful.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringAwful.Substring(12, 2), NumberStyles.HexNumber) / 255f);
                             break;
                         case QualityCategory.Poor:
-                            graphicData.color = new Color(0.4f, 1f, 0.2f); // green
+                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringPoor.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringPoor.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringPoor.Substring(12, 2), NumberStyles.HexNumber) / 255f);
                             break;
                         case QualityCategory.Normal:
-                            graphicData.color = new Color(0f, 0f, 1f); // blue
+                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringNormal.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringNormal.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringNormal.Substring(12, 2), NumberStyles.HexNumber) / 255f);
                             break;
                         case QualityCategory.Good:
-                            graphicData.color = new Color(0.6f, 0f, 0.6f); // purple
+                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringGood.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringGood.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringGood.Substring(12, 2), NumberStyles.HexNumber) / 255f);
                             break;
                         case QualityCategory.Excellent:
-                            graphicData.color = new Color(1f, 0.6f, 0f); // orange
+                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringExcellent.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringExcellent.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringExcellent.Substring(12, 2), NumberStyles.HexNumber) / 255f);
                             break;
                         case QualityCategory.Masterwork:
-                            graphicData.color = new Color(1f, 0.2f, 0.8f); // pink
+                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringMasterwork.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringMasterwork.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringMasterwork.Substring(12, 2), NumberStyles.HexNumber) / 255f);
                             break;
                         case QualityCategory.Legendary:
-                            graphicData.color = new Color(0f, 1f, 1f); // cyan
+                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringLegendary.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringLegendary.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringLegendary.Substring(12, 2), NumberStyles.HexNumber) / 255f);
                             break;
                     }
                 }
