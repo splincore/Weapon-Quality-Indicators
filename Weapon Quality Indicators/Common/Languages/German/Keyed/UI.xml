@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- Mod Options -->
+	<WeaponQualityIndicatorWidth>Indikator Breite</WeaponQualityIndicatorWidth>
+	<WeaponQualityIndicatorLenght>Indikator Länge</WeaponQualityIndicatorLenght>
+	<WeaponQualityIndicatorShow>Zeige grafischen Indikator</WeaponQualityIndicatorShow>
+	<WeaponQualityIndicatorDescriptionCard>Ändere Qualitätsfarbe in der Beschreibung</WeaponQualityIndicatorDescriptionCard>
+	<WeaponQualityIndicatorGroundLabel>Ändere Qualitätsfarbe in auf dem Bodem</WeaponQualityIndicatorGroundLabel>
+	<WeaponQualityIndicatorItemName>Ändere Qualitätsfarbe in im Namen</WeaponQualityIndicatorItemName>
+	<WeaponQualityIndicatorChange>Ändere</WeaponQualityIndicatorChange>
+	<WeaponQualityIndicatorColor>Farbe</WeaponQualityIndicatorColor>
+	
+	<!-- Color Change Window -->
+	<WeaponQualityIndicatorChangeColor>Ändere Farbe für:</WeaponQualityIndicatorChangeColor>
+	<WeaponQualityIndicatorRed>Rot</WeaponQualityIndicatorRed>
+	<WeaponQualityIndicatorGreen>Grün</WeaponQualityIndicatorGreen>
+	<WeaponQualityIndicatorBlue>Blau</WeaponQualityIndicatorBlue>
+	<WeaponQualityIndicatorResetDefault>Standard Farbe wiederherstellen</WeaponQualityIndicatorResetDefault>
+	
+</LanguageData>

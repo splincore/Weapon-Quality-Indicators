@@ -17,7 +17,7 @@ namespace WeaponQualityIndicators
 
         public override string TransformLabel(string label)
         {
-            if (!ModSettingGetter.changeShortLabelColor) return label;
+            if (!ModSettingGetter.changeLabelColor) return label;
             if (parent.TryGetQuality(out QualityCategory cat))
             {
                 switch (cat)
@@ -41,49 +41,42 @@ namespace WeaponQualityIndicators
             return label;
         }
 
-        public override void PostDraw()
+        public override void PostPrintOnto(SectionLayer layer)
         {
-            base.PostDraw();
+            base.PostPrintOnto(layer);
             if (!ModSettingGetter.renderGraphicIndicator) return;
-            if (!isInitialized)
+            Vector3 center = parent.TrueCenter() + new Vector3(0, 1, 0.5f * ModSettingGetter.yDrawSize);
+            Vector2 size = new Vector2(ModSettingGetter.xDrawSize, ModSettingGetter.yDrawSize);
+            Material mat = MaterialPool.MatFrom(new MaterialRequest(ContentFinder<Texture2D>.Get(Props.graphicData.texPath, true)));
+            Color32 color = new Color32(1, 1, 1, 1);
+            if (parent is ThingWithComps thingWithComps && thingWithComps.TryGetComp<CompQuality>() is CompQuality compQuality)
             {
-                graphicData = new GraphicData();
-                graphicData.texPath = Props.graphicData.texPath;
-                graphicData.graphicClass = Props.graphicData.graphicClass;
-                graphicData.drawSize = new Vector2() { x = ModSettingGetter.xDrawSize, y = ModSettingGetter.yDrawSize };
-                if (parent is ThingWithComps thingWithComps && thingWithComps.TryGetComp<CompQuality>() is CompQuality compQuality)
+                switch (compQuality.Quality)
                 {
-                    switch (compQuality.Quality)
-                    {
-                        case QualityCategory.Awful:
-                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringAwful.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringAwful.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringAwful.Substring(12, 2), NumberStyles.HexNumber) / 255f);
-                            break;
-                        case QualityCategory.Poor:
-                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringPoor.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringPoor.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringPoor.Substring(12, 2), NumberStyles.HexNumber) / 255f);
-                            break;
-                        case QualityCategory.Normal:
-                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringNormal.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringNormal.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringNormal.Substring(12, 2), NumberStyles.HexNumber) / 255f);
-                            break;
-                        case QualityCategory.Good:
-                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringGood.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringGood.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringGood.Substring(12, 2), NumberStyles.HexNumber) / 255f);
-                            break;
-                        case QualityCategory.Excellent:
-                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringExcellent.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringExcellent.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringExcellent.Substring(12, 2), NumberStyles.HexNumber) / 255f);
-                            break;
-                        case QualityCategory.Masterwork:
-                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringMasterwork.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringMasterwork.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringMasterwork.Substring(12, 2), NumberStyles.HexNumber) / 255f);
-                            break;
-                        case QualityCategory.Legendary:
-                            graphicData.color = new Color(int.Parse(ModSettingGetter.stringLegendary.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringLegendary.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringLegendary.Substring(12, 2), NumberStyles.HexNumber) / 255f);
-                            break;
-                    }
+                    case QualityCategory.Awful:
+                        color = new Color(int.Parse(ModSettingGetter.stringAwful.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringAwful.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringAwful.Substring(12, 2), NumberStyles.HexNumber) / 255f, 1f);
+                        break;
+                    case QualityCategory.Poor:
+                        color = new Color(int.Parse(ModSettingGetter.stringPoor.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringPoor.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringPoor.Substring(12, 2), NumberStyles.HexNumber) / 255f, 1f);
+                        break;
+                    case QualityCategory.Normal:
+                        color = new Color(int.Parse(ModSettingGetter.stringNormal.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringNormal.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringNormal.Substring(12, 2), NumberStyles.HexNumber) / 255f, 1f);
+                        break;
+                    case QualityCategory.Good:
+                        color = new Color(int.Parse(ModSettingGetter.stringGood.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringGood.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringGood.Substring(12, 2), NumberStyles.HexNumber) / 255f, 1f);
+                        break;
+                    case QualityCategory.Excellent:
+                        color = new Color(int.Parse(ModSettingGetter.stringExcellent.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringExcellent.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringExcellent.Substring(12, 2), NumberStyles.HexNumber) / 255f, 1f);
+                        break;
+                    case QualityCategory.Masterwork:
+                        color = new Color(int.Parse(ModSettingGetter.stringMasterwork.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringMasterwork.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringMasterwork.Substring(12, 2), NumberStyles.HexNumber) / 255f, 1f);
+                        break;
+                    case QualityCategory.Legendary:
+                        color = new Color(int.Parse(ModSettingGetter.stringLegendary.Substring(8, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringLegendary.Substring(10, 2), NumberStyles.HexNumber) / 255f, int.Parse(ModSettingGetter.stringLegendary.Substring(12, 2), NumberStyles.HexNumber) / 255f, 1f);
+                        break;
                 }
-                isInitialized = true;
             }
-            graphicData.Graphic.Draw(parent.DrawPos + new Vector3(0f, 2f, 0.5f * graphicData.Graphic.drawSize.y), Rot4.North, parent);
+            Printer_Plane.PrintPlane(layer, center, size, mat, 0, false, null, new Color32[] { color, color, color, color });
         }
-
-        private GraphicData graphicData = null;
-        private bool isInitialized = false;
     }
 }

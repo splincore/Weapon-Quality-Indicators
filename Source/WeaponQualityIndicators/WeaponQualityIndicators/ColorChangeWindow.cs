@@ -35,25 +35,25 @@ namespace WeaponQualityIndicators
         {
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
-            listingStandard.Label("Changing the color for: " + qualityColor + quality.CapitalizeFirst() + "</color>");
+            listingStandard.Label(string.Format("{0} {1}{2}</color>", "WeaponQualityIndicatorChangeColor".Translate(), qualityColor, ("QualityCategory_" + quality.CapitalizeFirst()).Translate()));
 
             listingStandard.Gap(10f);
-            listingStandard.Label("<color=#FF0000>Red</color>");
+            listingStandard.Label(string.Format("<color=#FF0000>{0}</color>", "WeaponQualityIndicatorRed".Translate()));
             Rect rectR = listingStandard.GetRect(22f);
             colorR = Widgets.HorizontalSlider(rectR, colorR, 0f, 255f, false, colorR.ToString(), "0", "255", 1f);
 
             listingStandard.Gap(10f);
-            listingStandard.Label("<color=#00FF00>Green</color>");
+            listingStandard.Label(string.Format("<color=#00FF00>{0}</color>", "WeaponQualityIndicatorGreen".Translate()));
             Rect rectG = listingStandard.GetRect(22f);
             colorG = Widgets.HorizontalSlider(rectG, colorG, 0f, 255f, false, colorG.ToString(), "0", "255", 1f);
 
             listingStandard.Gap(10f);
-            listingStandard.Label("<color=#0000FF>Blue</color>");
+            listingStandard.Label(string.Format("<color=#0000FF>{0}</color>", "WeaponQualityIndicatorBlue".Translate()));
             Rect rectB = listingStandard.GetRect(22f);
             colorB = Widgets.HorizontalSlider(rectB, colorB, 0f, 255f, false, colorB.ToString(), "0", "255", 1f);
 
             listingStandard.Gap(10f);
-            if (listingStandard.ButtonText("Reset to default color"))
+            if (listingStandard.ButtonText("WeaponQualityIndicatorResetDefault".Translate()))
             {
                 qualityColor = defaultQualityColor;
                 SetRGBColors();

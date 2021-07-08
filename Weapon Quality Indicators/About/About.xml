@@ -3,20 +3,12 @@
 	<name>Weapon and Apparel Quality Indicators</name>
 	<author>Carny Senpai</author>
 	<packageId>CarnySenpai.WeaponQualityIndicators</packageId>
-	<description>Makes weapons and apparel have that glowing indicator above them like in Borderlands 2.
-
-Color depends on weapon quality and is also taken from Borderlands 2:
-White
-Green
-Blue
-Purple
-Orange
-Pink
-Cyan</description>
+	<description>Gives weapons and apparel a glowing indicator above them like in Borderlands 2. Changes quality label on ground, in item name and in the description card.</description>
 	<supportedVersions>
 		<li>1.0</li>
 		<li>1.1</li>
 		<li>1.2</li>
+		<li>1.3</li>
 	</supportedVersions>
 	<modDependencies>
 		<li>
