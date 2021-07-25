@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- Mod Options -->
+	<WeaponQualityIndicatorWidth>표시 두께</WeaponQualityIndicatorWidth>
+	<WeaponQualityIndicatorLenght>표시 길이</WeaponQualityIndicatorLenght>
+	<WeaponQualityIndicatorShow>그래픽 표시 보이기</WeaponQualityIndicatorShow>
+	<WeaponQualityIndicatorDescriptionCard>설명에서 품질 색상 바꾸기</WeaponQualityIndicatorDescriptionCard>
+	<WeaponQualityIndicatorGroundLabel>땅에 놓인 아이템의 품질 색상 바꾸기</WeaponQualityIndicatorGroundLabel>
+	<WeaponQualityIndicatorItemName>아이템 이름의 품질 색상 바꾸기</WeaponQualityIndicatorItemName>
+	<WeaponQualityIndicatorChange>변경</WeaponQualityIndicatorChange>
+	<WeaponQualityIndicatorColor>색상</WeaponQualityIndicatorColor>
+	
+	<!-- Color Change Window -->
+	<WeaponQualityIndicatorChangeColor>다음에 대해 색상 변경:</WeaponQualityIndicatorChangeColor>
+	<WeaponQualityIndicatorRed>적색</WeaponQualityIndicatorRed>
+	<WeaponQualityIndicatorGreen>녹색</WeaponQualityIndicatorGreen>
+	<WeaponQualityIndicatorBlue>청색</WeaponQualityIndicatorBlue>
+	<WeaponQualityIndicatorResetDefault>기본 색상으로 재설정</WeaponQualityIndicatorResetDefault>
+	
+</LanguageData>
