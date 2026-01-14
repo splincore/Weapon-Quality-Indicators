@@ -23,19 +23,19 @@ namespace WeaponQualityIndicators
                 switch (cat)
                 {
                     case QualityCategory.Awful:
-                        return label.Replace(string.Format("({0})", "QualityCategory_Awful".Translate()), string.Format("({0}{1}</color>)", ModSettingGetter.stringAwful, "QualityCategory_Awful".Translate()));
+                        return label.Replace(string.Format("({0}", "QualityCategory_Awful".Translate()), string.Format("({0}{1}</color>", ModSettingGetter.stringAwful, "QualityCategory_Awful".Translate()));
                     case QualityCategory.Poor:
-                        return label.Replace(string.Format("({0})", "QualityCategory_Poor".Translate()), string.Format("({0}{1}</color>)", ModSettingGetter.stringPoor, "QualityCategory_Poor".Translate()));
+                        return label.Replace(string.Format("({0}", "QualityCategory_Poor".Translate()), string.Format("({0}{1}</color>", ModSettingGetter.stringPoor, "QualityCategory_Poor".Translate()));
                     case QualityCategory.Normal:
-                        return label.Replace(string.Format("({0})", "QualityCategory_Normal".Translate()), string.Format("({0}{1}</color>)", ModSettingGetter.stringNormal, "QualityCategory_Normal".Translate()));
+                        return label.Replace(string.Format("({0}", "QualityCategory_Normal".Translate()), string.Format("({0}{1}</color>", ModSettingGetter.stringNormal, "QualityCategory_Normal".Translate()));
                     case QualityCategory.Good:
-                        return label.Replace(string.Format("({0})", "QualityCategory_Good".Translate()), string.Format("({0}{1}</color>)", ModSettingGetter.stringGood, "QualityCategory_Good".Translate()));
+                        return label.Replace(string.Format("({0}", "QualityCategory_Good".Translate()), string.Format("({0}{1}</color>", ModSettingGetter.stringGood, "QualityCategory_Good".Translate()));
                     case QualityCategory.Excellent:
-                        return label.Replace(string.Format("({0})", "QualityCategory_Excellent".Translate()), string.Format("({0}{1}</color>)", ModSettingGetter.stringExcellent, "QualityCategory_Excellent".Translate()));
+                        return label.Replace(string.Format("({0}", "QualityCategory_Excellent".Translate()), string.Format("({0}{1}</color>", ModSettingGetter.stringExcellent, "QualityCategory_Excellent".Translate()));
                     case QualityCategory.Masterwork:
-                        return label.Replace(string.Format("({0})", "QualityCategory_Masterwork".Translate()), string.Format("({0}{1}</color>)", ModSettingGetter.stringMasterwork, "QualityCategory_Masterwork".Translate()));
+                        return label.Replace(string.Format("({0}", "QualityCategory_Masterwork".Translate()), string.Format("({0}{1}</color>", ModSettingGetter.stringMasterwork, "QualityCategory_Masterwork".Translate()));
                     case QualityCategory.Legendary:
-                        return label.Replace(string.Format("({0})", "QualityCategory_Legendary".Translate()), string.Format("({0}{1}</color>)", ModSettingGetter.stringLegendary, "QualityCategory_Legendary".Translate()));
+                        return label.Replace(string.Format("({0}", "QualityCategory_Legendary".Translate()), string.Format("({0}{1}</color>", ModSettingGetter.stringLegendary, "QualityCategory_Legendary".Translate()));
                 }
             }
             return label;
